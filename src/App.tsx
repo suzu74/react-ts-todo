@@ -7,18 +7,18 @@ function App() {
   const [incompleteTodos, setIncompleteTodos] = useState<Array<number | string>>(["111", 111])
   const [completeTodos, setCompleteTodos] = useState<Array<number | string>>(["otaga"])
 
-  const onChangeTodoText = (e: any) => {
+  const onChangeTodoText = (e: any): void => {
     setTodoText(e.target.value)
   }
 
-  const onClickAdd = () => {
+  const onClickAdd = (): void => {
     if(todoText === "") return
     const newTodos: Array<string | number> = [...incompleteTodos, todoText]
     setIncompleteTodos(newTodos)
     setTodoText("")
   }
 
-  const onClickDelete = (index: number) => {
+  const onClickDelete = (index: number): void => {
     const newTodos = [...incompleteTodos]
     newTodos.splice(index, 1)
     setIncompleteTodos(newTodos)
