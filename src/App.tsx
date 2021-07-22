@@ -6,8 +6,8 @@ import { CompleteTodo } from "./components/CompleteTodo"
 
 function App() {
   const [todoText, setTodoText] = useState<number | string>("")
-  const [incompleteTodos, setIncompleteTodos] = useState<Array<number | string>>(["111", 111])
-  const [completeTodos, setCompleteTodos] = useState<Array<number | string>>(["otaga"])
+  const [incompleteTodos, setIncompleteTodos] = useState<Array<number | string>>([])
+  const [completeTodos, setCompleteTodos] = useState<Array<number | string>>([])
 
   const onChangeTodoText = (e: any): void => {
     setTodoText(e.target.value)
