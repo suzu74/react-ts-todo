@@ -1,7 +1,7 @@
-import logo from './logo.svg';
 import './App.css';
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import { InputTodo } from "./components/InputTodo"
+import { IncompleteTodo } from "./components/IncompleteTodo"
 
 function App() {
   const [todoText, setTodoText] = useState<number | string>("")
@@ -46,21 +46,8 @@ function App() {
 
   return (
     <>
-       <InputTodo todoText={todoText}  onChangeTodoText={onChangeTodoText} onClickAdd={onClickAdd}/>
-       <div className="incomplete-area">
-        <p className="title">未完了のTODO</p>
-        <ul>
-          {incompleteTodos.map((todo, index) => {
-            return(
-              <div className="list-row">
-                <li>{todo}</li>
-                <button onClick={() => { onClickComplete(index) }}>完了</button>
-                <button onClick={() => { onClickDelete(index)}}>削除</button>
-              </div>
-            )
-          })}
-        </ul>
-      </div>
+      <InputTodo todoText={todoText}  onChangeTodoText={onChangeTodoText} onClickAdd={onClickAdd}/>
+    <IncompleteTodo onClickDelete={onClickDelete} onClickComplete={onClickComplete} incompleteTodos={incompleteTodos}/>
       <div className="complete-area">
         <p className="title">完了のTODO</p>
         <ul>
